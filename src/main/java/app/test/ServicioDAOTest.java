@@ -15,33 +15,28 @@ public class ServicioDAOTest {
     public static void main(String[] args) {
         
         ServicioDAOTest.getAll();
-        ServicioDAOTest.get22();
-        ServicioDAOTest.getAll();
-        
+        ServicioDAOTest.get3();
     }
 
     public static void getAll() {
         ApplicationContext context = new ClassPathXmlApplicationContext("database.xml");
-
         ServicioDAO servicioDAO = (ServicioDAO) context.getBean("servicioDAO");
+ 
         List<Servicio> servicios = servicioDAO.list();
         for (Servicio servicio : servicios) {
             System.out.println(servicio.getId()+" "+servicio.getDescripcion() + " " + servicio.getCostoHora());
         }
     }
     
-    public static void get22() {
+    public static void get3() {
         ApplicationContext context = new ClassPathXmlApplicationContext("database.xml");
-
         ServicioDAO servicioDAO = (ServicioDAO) context.getBean("servicioDAO");
         
         Servicio servicio = new Servicio();
         servicio.setId((Long) 3L);
-        servicio.setDescripcion("Cambiado");
-        servicio.setCostoHora(5555.5);
+                
+        servicio = servicioDAO.get(servicio);
         
-        servicioDAO.update(servicio);
-        
-        
+        System.out.println(servicio.getId()+" "+servicio.getDescripcion()+" "+servicio.getCostoHora());
     }
 }
