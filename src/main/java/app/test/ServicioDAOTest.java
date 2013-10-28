@@ -16,6 +16,7 @@ public class ServicioDAOTest {
         
         ServicioDAOTest.getAll();
         ServicioDAOTest.get3();
+        ServicioDAOTest.update3();
     }
 
     public static void getAll() {
@@ -34,6 +35,22 @@ public class ServicioDAOTest {
         
         Servicio servicio = new Servicio();
         servicio.setId((Long) 3L);
+                
+        servicio = servicioDAO.get(servicio);
+        
+        System.out.println(servicio.getId()+" "+servicio.getDescripcion()+" "+servicio.getCostoHora());
+    }
+    
+    public static void update3() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("database.xml");
+        ServicioDAO servicioDAO = (ServicioDAO) context.getBean("servicioDAO");
+        
+        Servicio servicio = new Servicio();
+        servicio.setId((Long) 3L);
+        servicio.setDescripcion("Hola");
+        servicio.setCostoHora(12.3);
+        
+        servicioDAO.update(servicio);
                 
         servicio = servicioDAO.get(servicio);
         
