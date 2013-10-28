@@ -12,10 +12,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Administrador
- */
+
 @Repository("servicioDAO")
 public class ServicioDAOH extends BaseHibernateDAO implements ServicioDAO {
 
