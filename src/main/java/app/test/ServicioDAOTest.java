@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ServicioDAOTest {
     public static void main(String[] args) {
-        
+        ServicioDAOTest.update3();
         ServicioDAOTest.getAll();
     }
 
@@ -27,14 +27,17 @@ public class ServicioDAOTest {
         }
     }
     
-    public static void get3() {
+    public static void update3() {
         ApplicationContext context = new ClassPathXmlApplicationContext("database.xml");
         ServicioDAO servicioDAO = (ServicioDAO) context.getBean("servicioDAO");
         
         Servicio servicio = new Servicio();
-        servicio.setId((Long) 3L);
-                
-        servicio = servicioDAO.get(servicio);
+        
+        servicio.setId(3L);
+        servicio.setDescripcion("Jose Condor Aguayo");
+        servicio.setCostoHora(1524.11);
+        
+        servicioDAO.update(servicio);
         
         System.out.println(servicio.getId()+" "+servicio.getDescripcion()+" "+servicio.getCostoHora());
     }

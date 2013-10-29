@@ -9,6 +9,8 @@ import app.dao.ServicioDAO;
 import app.model.Servicio;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -28,15 +30,24 @@ public class ServicioDAOH extends BaseHibernateDAO implements ServicioDAO {
     }
 
     public void save(Servicio t) {
-       this.getSession().save(t);
+        Session sesion = this.getSession();
+        Transaction tr = sesion.beginTransaction();
+        sesion.save(t);
+        tr.commit();
     }
 
     public void update(Servicio t) {
-       this.getSession().update(t);
+        Session sesion = this.getSession();
+        Transaction tr = sesion.beginTransaction();
+        sesion.update(t);
+        tr.commit();
     }
 
     public void delete(Servicio t) {
-       this.getSession().delete(t);
+        Session sesion = this.getSession();
+        Transaction tr = sesion.beginTransaction();
+        sesion.delete(t);
+        tr.commit();
     }
     
 }
