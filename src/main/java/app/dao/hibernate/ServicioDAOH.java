@@ -29,10 +29,12 @@ public class ServicioDAOH extends BaseHibernateDAO implements ServicioDAO {
 
     public void save(Servicio t) {
        this.getSession().save(t);
+       this.getSession().flush();
     }
 
     public void update(Servicio t) {
        this.getSession().update(t);
+       this.getSession().flush();
     }
 
     public void delete(Servicio t) {

@@ -17,6 +17,7 @@ public class ServicioDAOTest {
         ServicioDAOTest.getAll();
         ServicioDAOTest.get3();
         ServicioDAOTest.update3();
+        ServicioDAOTest.getAll();
     }
 
     public static void getAll() {
@@ -49,10 +50,11 @@ public class ServicioDAOTest {
         servicio.setId((Long) 3L);
         servicio.setDescripcion("Hola");
         servicio.setCostoHora(12.3);
+        System.out.println(servicio.getId()+" "+servicio.getDescripcion()+" "+servicio.getCostoHora());
         
         servicioDAO.update(servicio);
                 
-        servicio = servicioDAO.get(servicio);
+        Servicio servicio1 = servicioDAO.get(servicio);
         
         System.out.println(servicio.getId()+" "+servicio.getDescripcion()+" "+servicio.getCostoHora());
     }
