@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ServicioDAOTest {
     public static void main(String[] args) {
-        ServicioDAOTest.update3();
+       // ServicioDAOTest.update3();
         ServicioDAOTest.getAll();
     }
 

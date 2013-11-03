@@ -35,7 +35,7 @@ public class Local implements Serializable {
     private String telefono;
 
     @OneToMany(mappedBy = "local", fetch = FetchType.LAZY)
-   private List<Campo> campo;
+    private List<Campo> campo;
 
     public Local() {}
 
